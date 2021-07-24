@@ -2,13 +2,13 @@ SELECT * FROM covid_deaths;
 
 SELECT * FROM covid_vacc;
 
--- Select Data that we are ging to be using
+-- Select Data that we are going to be using
 SELECT location, day, total_cases, new_cases, total_deaths, population
 FROM covid_deaths
 ORDER BY 1,2;
 
 -- Looking at the Total cases vs. Total Deaths
--- Precentage of deaths for cases of covid in Canada.
+-- Precentage of deaths from cases of covid in Canada.
 SELECT location, day, total_cases, total_deaths, ROUND((total_deaths/total_cases)*100, 3) AS Death_Percentage
 FROM covid_deaths
 WHERE location = 'Canada'
@@ -16,7 +16,7 @@ AND continent IS NOT NULL
 ORDER BY 1,2;
 
 -- Looking at Total Cases vs Population
--- Shows what percentage of the population that got Covid
+-- Shows what percentage of the population got Covid
 SELECT location, day, total_cases, population, ROUND((total_cases/population)*100, 3) AS Covid_Percentage
 FROM covid_deaths
 WHERE location = 'Canada'
